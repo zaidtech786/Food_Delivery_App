@@ -1,0 +1,12 @@
+.sliderContainer{
+    width: 90%;
+    overflow: hidden;
+    transition: all .3s;
+    display: flex;
+    flex-direction: column;
+}
+.sliderContainer img{
+    object-fit: contain;
+    width: 100%;
+    transition: all .3s;
+}

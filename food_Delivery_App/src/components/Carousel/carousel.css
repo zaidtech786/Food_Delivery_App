@@ -1,0 +1,13 @@
+.secContainer{
+    width: 90%;
+    overflow: hidden;
+    transition: all .3s;
+    margin-left: 200px;
+    margin-top: 10px;
+  
+}
+.slider2{
+    object-fit: contain;
+    width: 100%;
+    transition: all .3s;
+}
