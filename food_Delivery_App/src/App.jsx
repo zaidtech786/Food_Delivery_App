@@ -39,7 +39,7 @@ function App() {
   });
 
   const getCarts = () => {
-    axios.get(`http://localhost:4000/api/cart/getusercart/${user?._id}`)
+    axios.get(`http://localhost:4000/api/cart/getusercart/${user._id}`)
     .then(res => {
         console.log("Carts : ",res.data)
         cartDispatch({type:"CART_DATA",payload:res.data.cart})

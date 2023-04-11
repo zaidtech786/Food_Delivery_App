@@ -108,6 +108,7 @@ export default function Login() {
         return
       }
       else{
+        alert("Something Went Wrong,Please try again")
         navigate("/login")
       }
     })

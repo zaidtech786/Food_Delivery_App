@@ -64,12 +64,22 @@ const CartItems = () => {
     // //    
     // }
 
-    // const findTotalCart = () => {
-    //     const prices = data?.map((cart) => cart.product.price * cart.quantity)
-    //     const total = prices?.reduce((acc, curr) => acc + curr)
-    
-    // }
+    const findTotalCart = () => {
+        // let total_price = data.reduce(initialVal,curElem => {
+        //     initialVal = initialVal + (curElem.product.price * curElem.quantity)
+        //     return initialVal;
 
+        // },0)
+        let total_price = data.reduce( (initialVal,curElem) => {
+            initialVal = initialVal + (curElem.product.price * curElem.quantity)
+            return initialVal;
+        },0)
+        setCheckOutPrice(total_price)
+    }
+useEffect( () => {
+    console.log(findTotalCart())
+    
+})
 
   return (
     <>
@@ -110,7 +120,7 @@ const CartItems = () => {
 
         </div>
             <div className='lastSec'>
-                <h2>Cart Total : {checkOutPrice}</h2>
+                <h2>Cart Total :{checkOutPrice} </h2>
                 <button className='checkoutbtn'>CheckOut</button>
 
             </div>

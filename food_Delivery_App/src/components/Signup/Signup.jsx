@@ -20,6 +20,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LoginIcon from "@mui/icons-material/Login";
 import Navbar from "../../common/Navbar";
+import axios from "axios";
 
 // Validations
 
@@ -125,6 +126,21 @@ export default function Signup() {
     setSuccess("Form Submitted Successfully");
   };
 
+
+  const SignUp = () => {
+    axios.post("http://localhost:4000/api/usersignup",{
+      name:usernameInput,
+      email:emailInput,
+      password:passwordInput
+    })
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <>
     <Navbar/>
@@ -133,7 +149,7 @@ export default function Signup() {
       <div style={{ marginTop: "10px",padding:"0.5rem" }}>
         <TextField
           error={usernameError}
-          label="Username"
+          label="Enter Name"
           id="standard-basic"
           variant="standard"
           sx={{ width: "100%" }}
@@ -201,9 +217,9 @@ export default function Signup() {
           variant="contained"
           fullWidth
           startIcon={<LoginIcon />}
-          onClick={handleSubmit}
+          onClick={SignUp}
         >
-          LOGIN
+          SignUp
         </Button>
       </div>
 
@@ -230,7 +246,7 @@ export default function Signup() {
         <br />
         Do you have an account ?
         <small style={{ textDecoration: "underline", color: "blue" }}>
-          Sign Up
+          Sign in
         </small>
       </div>
       </div>

@@ -55,7 +55,6 @@ const Header = () => {
   const {dispatch} = useContext(AppContext)
   const Logout = () => {
     dispatch({type:"LOGOUT"});
-    navigate("/login")
   }
   return (
     <AppBar position="sticky" >
@@ -68,7 +67,7 @@ const Header = () => {
           <InputBase placeholder="search..." />
         </Search> */}
         <Icons>
-          <Badge badgeContent={cart.length} color="error" sx={{cursor:"pointer"}}>
+          <Badge badgeContent={cart?.length} color="error" sx={{cursor:"pointer"}}>
             <Link to="/cartitems" style={{color:"white"}}>
             <ShoppingCartIcon />
             </Link>
@@ -106,7 +105,7 @@ const Header = () => {
       >
         <MenuItem>Profile</MenuItem>
         <MenuItem>My account</MenuItem>
-        <Link><MenuItem  onClick={()=>Logout()}>Logout</MenuItem></Link>
+        <Link to="/login" style={{color:"black",textDecoration:"none"}}><MenuItem  onClick={()=>Logout()}>Logout</MenuItem></Link>
       </Menu>
     </AppBar>
   );
