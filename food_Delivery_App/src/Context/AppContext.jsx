@@ -12,6 +12,7 @@ export const AppProvider = ({children}) => {
 
     let userInfo = JSON.parse(localStorage.getItem("user"));
     const [state,dispatch] = useReducer(Reducer,userInfo);
+    const [icon,setIcon] = useState("home")
   
    
 
@@ -19,7 +20,7 @@ export const AppProvider = ({children}) => {
         localStorage.setItem("user",JSON.stringify(state))
     },[state])
 
-    return <AppContext.Provider value={{...state,dispatch}}>
+    return <AppContext.Provider value={{...state,dispatch,icon,setIcon}}>
         {children}
     </AppContext.Provider>
 }

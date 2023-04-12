@@ -8,6 +8,7 @@
 }
 .slider2{
     object-fit: contain;
+    /* height: 200px; */
     width: 100%;
     transition: all .3s;
 }

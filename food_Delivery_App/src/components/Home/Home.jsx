@@ -1,5 +1,5 @@
 import { Box, Stack, Skeleton, Card } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./home.css";
 import Carousel from "../Carousel/Carousel";
 import Cards from "../Cards/Cards"
@@ -7,9 +7,11 @@ import RamadanCard from "../RamadanCard/RamadanCard";
 import CategoryCards from './../Category/CategoryCards';
 import Header from './../Header/Header';
 import Sidebar from './../Sidebar/Sidebar';
+import { AppContext } from "../../Context/AppContext";
 
 const Feed = () => {
   const [count, setCount] = useState(0);
+  const {icon} = useContext(AppContext)
   const [mousedOver, setMousedOver] = useState(false);
   const img = [
     "https://www.jiomart.com/images/cms/aw_rbslider/slides/1680879326_MUMBAI.jpg",

@@ -1,5 +1,7 @@
 .bigContainer{
     display: flex;
+    /* justify-content: center;
+    align-items: center; */
 
 }
 .imgContainer{
@@ -63,4 +65,7 @@
 .inp{
     width: 40px;
     padding: 10px;
+}
+.rightBox{
+    margin-top: 200px;
 }

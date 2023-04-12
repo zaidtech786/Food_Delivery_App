@@ -9,7 +9,7 @@ import {
     Stack,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-
+import Skeleton from 'react-loading-skeleton'
 // import { Link } from "react-router-dom";
 import  axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -35,6 +35,72 @@ const Cards = () => {
   }, []);
   return (
     <>
+
+
+{/* <Card
+sx={{
+  maxWidth: "230px",
+  padding: "10px",
+  textDecoration: "none",
+  "&:hover": {
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+  },
+  cursor: "pointer",
+  bgcolor: "#fcfcfc",
+}}
+elevation={0}
+>
+<CardMedia
+  component="img"
+  width="100%"
+  height={210}
+  image={<Skeleton/>}
+  alt="card Image"
+  sx={{
+    borderRadius: "10px",
+  }}
+/>
+<CardContent
+  sx={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: "10px",
+    paddingX: "5px",
+  }}
+>
+ 
+  <Stack direction="column" gap={1} sx={{}}>
+    <Typography fontSize={16} fontWeight={500} color="#11142d">
+    <Skeleton/>
+    </Typography>
+    <Box
+      px={1.5}
+      py={0.5}
+      borderRadius={1}
+      bgcolor="#e5f7ee"
+      height="fit-content"
+      width="fit-content"
+    >
+      <Typography fontSize={12} fontWeight={600} color="#03753c">
+      <Skeleton/>
+      </Typography>
+    </Box>
+  </Stack>
+  <Box
+    px={1.5}
+    py={0.5}
+    borderRadius={1}
+    bgcolor="#dadefa"
+    height="fit-content"
+  >
+    <Typography fontSize={12} fontWeight={600} color="#475be8">
+    <Skeleton/>
+    </Typography>
+  </Box>
+</CardContent>
+</Card> */}
+
     <h1 style={{textAlign:"center",marginTop:"1rem"}}>Our Trending Products</h1>
     <div style={{display:"flex",justifyContent:"center",flexDirection:"row",gap:"30px",marginTop:"1rem",marginLeft:"120px"}}>
     {data?.map((item) => {
@@ -67,30 +133,26 @@ const Cards = () => {
             <CardContent
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 justifyContent: "space-between",
                 gap: "10px",
                 paddingX: "5px",
               }}
             >
-              <Stack direction="column" gap={1} sx={{}}>
-                <Typography fontSize={16} fontWeight={500} color="#11142d">
-                {item.name}
+              <Typography fontSize={16} fontWeight={600} color="#475be8">
+                  {item.desc}
                 </Typography>
-                <Box
-                  px={1.5}
-                  py={0.5}
-                  borderRadius={1}
-                  bgcolor="#e5f7ee"
-                  height="fit-content"
-                  width="fit-content"
-                >
-                  <Typography fontSize={12} fontWeight={600} color="#03753c">
-                    {item.discount}%
-                  </Typography>
-                </Box>
-              </Stack>
-              <Box
+                <div className="card-Content">
+                  <h2>₹{item.price}.00</h2>
+                  <div style={{display:"flex",flexDirection:"row"}}>
+                  <h3 style={{textDecoration:"line-through",marginRight:"20px"}}>₹{item.price + 500}</h3>
+                  <h4 style={{color:"green"}}>{item.discount}%OFF</h4>
+                  </div>
+                </div>
+              {/* <Stack direction="column" gap={1} sx={{}}> */}
+              
+              {/* </Stack> */}
+              {/* <Box
                 px={1.5}
                 py={0.5}
                 borderRadius={1}
@@ -100,7 +162,7 @@ const Cards = () => {
                 <Typography fontSize={12} fontWeight={600} color="#475be8">
                   ${item.price}
                 </Typography>
-              </Box>
+              </Box> */}
             </CardContent>
           </Card>
           )
@@ -114,3 +176,5 @@ const Cards = () => {
 }
 
 export default Cards
+
+

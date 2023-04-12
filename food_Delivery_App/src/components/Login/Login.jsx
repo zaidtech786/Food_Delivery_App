@@ -104,12 +104,12 @@ export default function Login() {
     .then(res => {
       if(res.data.message==="Login Successfully"){
         dispatch({type:"LOGIN",payload:res.data.user})
-        navigate("/home")
+        // navigate("/home")
         return
       }
       else{
         alert("Something Went Wrong,Please try again")
-        navigate("/login")
+        // navigate("/login")
       }
     })
     .catch(err => {

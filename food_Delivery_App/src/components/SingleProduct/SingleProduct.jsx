@@ -20,7 +20,7 @@ const SingleProduct = () => {
     const getSingleProductData = () => {
         axios.get(`http://localhost:4000/api/food/getfood/${id}`)
         .then(res => {
-            console.log(res.data.food)
+            console.log("SingleProduct : ",res.data.food)
             // setImg(res.data.food.photos[0])
             setData(res.data.food)
         }).catch(err => {
@@ -32,45 +32,38 @@ const SingleProduct = () => {
     },[])
 
     useEffect( () => {
-        let findDuplicate = cart.find(item => {
-          return item.product._id===id
+        let exist = cart?.find(item => {
+          return item.product===id
         });
-        if(findDuplicate){
+        if(exist){
           return setInCart(true)
         }
         else{
           return setInCart(false)
         }
-      },[cart])
+      
+      },[])
     
 
     const AddToCart = () => {
-        setInCart(true)
-    axios.post("http://localhost:4000/api/cart/addtocart",{
-      user:user._id,
-      product:id,
+        axios.post("http://localhost:4000/api/cart/addtocart",{
+            user:user._id,
+            product:id,
       quantity
     }).then(res => {
         console.log(res.data)
-        // cartDispatch({type:"ADD_TO_CART",payload:res.data.cart})
+        cartDispatch({type:"ADD_TO_CART",payload:res.data.cart})
+        setInCart(true)
         // setInCart(true)
-        if(res.data.cart.product===id){
-            return  setInCart(true)
-        }
-        else{
-            return setInCart(false)
-        }
+        // if(res.data.cart.product===id){
+        //     return  setInCart(true)
+        // }
+        // else{
+        //     return setInCart(false)
+        // }
     }).catch(err => {
         console.log(err)
     });
-    // const updateCart = cart.find(cart => {
-    //     if(cart.product===id){
-    //         return setInCart(true)
-    //     }
-    //     return setInCart(false)
-
-    //  });
-     
    
     }
 
@@ -96,7 +89,7 @@ const SingleProduct = () => {
     <>
     <Header />
     <Sidebar />
-    <h2 style={{marginLeft:"300px",marginTop:"50px"}}>{data.name}</h2>
+    {/* <h2 style={{marginLeft:"300px",marginTop:"50px"}}>{data.name}</h2> */}
     <div className='bigContainer'>
     <div className='wrapper'>
     <div className='imgContainer'>
@@ -125,10 +118,10 @@ const SingleProduct = () => {
     <h3 style={{color: "#0c5273"}}>{data.name}</h3>
     <h2 style={{marginTop:"1.5rem"}}>{data.desc}</h2>
     <div className='content'>
-        <h1>₹{data.price}</h1>
-        <h3 style={{marginLeft:"1.5rem",color: "#0c5273"}}>{data.discount}% off</h3>
+        <h1>₹{data.price}.00</h1>
+        <h3 style={{marginLeft:"1.5rem",color: "green",fontSize:"1.5rem"}}>{data.discount}% OFF</h3>
     </div>
-    <h2 style={{marginTop:"1rem"}}>MRP : <span style={{textDecoration:"line-through",marginRight:"30px"}}>₹{data.price + 200}</span>(Incl. of all taxes)</h2>
+    <h2 style={{marginTop:"1rem",color:"grey"}}>MRP : <span style={{textDecoration:"line-through",marginRight:"30px",color:"grey"}}>₹{data.price + 200}.00</span>(Incl. of all taxes)</h2>
     <div className='lastContent'>
     <h1>Description</h1>
     <p style={{fontSize:"18px"}}>{data.desc}</p>
@@ -138,7 +131,7 @@ const SingleProduct = () => {
         <input type='number' value={quantity} className='inp'/>
         <button onClick={()=>Decrement()} className='decBtn btn'>-</button>
     </div>
-    <button className='btn_Cart' onClick={()=>AddToCart()}>{inCart ?"Already in a Cart" :  "Add To cart"   }</button>
+    <button className='btn_Cart' onClick={()=>AddToCart()}>{inCart ?"Go to Cart" :  "Add To cart"   }</button>
 </div>
     
     </div>

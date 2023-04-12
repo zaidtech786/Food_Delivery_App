@@ -57,7 +57,7 @@ const Header = () => {
     dispatch({type:"LOGOUT"});
   }
   return (
-    <AppBar position="sticky" >
+    <AppBar position="sticky" sx={{backgroundColor:"#6D214F"}} >
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           Faayda Bazaar

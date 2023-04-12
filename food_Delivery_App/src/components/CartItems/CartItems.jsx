@@ -36,11 +36,11 @@ const CartItems = () => {
       .catch(err => {
         console.log(err)
       });
-      let filterData = cart.filter( item => {
-        return item._id!==id
-      });
+    //   let filterData = cart.find( item => {
+    //     return item.product!==id
+    //   });
     //   console.log("Filter",filterData)
-    setData(filterData)
+    // // setData(filterData)
     //   cartDispatch({type:"SET_DATA",payload:filterData})
     }
     
@@ -65,11 +65,6 @@ const CartItems = () => {
     // }
 
     const findTotalCart = () => {
-        // let total_price = data.reduce(initialVal,curElem => {
-        //     initialVal = initialVal + (curElem.product.price * curElem.quantity)
-        //     return initialVal;
-
-        // },0)
         let total_price = data.reduce( (initialVal,curElem) => {
             initialVal = initialVal + (curElem.product.price * curElem.quantity)
             return initialVal;
@@ -93,7 +88,7 @@ useEffect( () => {
                 data.map( (item) => {
                     return (
                         <div className='cartItems' key={item._id}>
-                        <img src={item.product.photos[0]}/>
+                        <img src={item?.product?.photos[0]}/>
                       
                         <div className='cartContent'>
                             <h2>{item.product.name}</h2>

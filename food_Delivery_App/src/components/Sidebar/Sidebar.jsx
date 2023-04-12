@@ -17,55 +17,58 @@ import {
     ListItemText,
     Switch,
   } from "@mui/material";
-  import React from "react";
+  import React, { useContext } from "react";
   import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
   import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
   import {Link} from "react-router-dom"
+  import "./Sidebar.css"
+import { AppContext } from "../../Context/AppContext";
   
   const Sidebar = ({mode,setMode}) => {
+    const {setIcon,icon} = useContext(AppContext)
     return (
       <Box flex={1}  sx={{ display: { xs: "none", sm: "block"}, }}>
         {/* sx={{backgroundColor:"red"}} */}
-        <Box position="fixed" sx={{backgroundColor:"#74b9ff",marginTop:"0px",padding:"20px",height:"100%",lineHeight:"80px",width:"10%"}}  >
-          <List>
+        <Box position="fixed" sx={{backgroundColor:"#B53471",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",borderRadius:"10px",marginTop:"0px",height:"100%",lineHeight:"80px",width:"12%"}}  >
+          <List >
            
-            <ListItem disablePadding >
-            <Link to="/home" style={{textDecoration:"none",color:"#000"}}>
-              <ListItemButton component="a" href="#home" >
+            <ListItem disablePadding className={icon==="home" ? "icon" : ""}>
+            <Link to="/" style={{textDecoration:"none",color:"#fff"}} onClick={()=>setIcon("home")}>
+              <ListItemButton component="a" >
                 <ListItemIcon>
-                  <Home />
+                  <Home sx={{ color:"white"}} />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
             </Link>
             </ListItem>
 
-            <ListItem disablePadding >
-            <Link to="/products" style={{textDecoration:"none",color:"#000"}}>
-              <ListItemButton component="a" href="#simple-list">
+            <ListItem disablePadding className={icon==="products" ? "icon" : ""} >
+            <Link to="/products" style={{textDecoration:"none",color:"#fff"}} onClick={()=>setIcon("products")} >
+              <ListItemButton component="a" >
                 <ListItemIcon>
-                  <ShoppingBagIcon />
+                  <ShoppingBagIcon sx={{ color:"white"}} />
                 </ListItemIcon>
-                <ListItemText primary="Products" />
+                <ListItemText primary="Products" color="white" />
               </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem disablePadding >
-              <Link to="/orders" style={{textDecoration:"none",color:"#000"}}>
+            <ListItem disablePadding className={icon==="orders" ? "icon" : ""} >
+              <Link to="/orders" style={{textDecoration:"none",color:"#fff"}} onClick={()=>setIcon("orders")}>
               <ListItemButton component="a" href="#simple-list">
                 <ListItemIcon>
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon sx={{ color:"white"}}/>
                 </ListItemIcon>
                 <ListItemText primary="Orders" />
               </ListItemButton>
               </Link>
             </ListItem>
 
-             <ListItem disablePadding>
-             <Link to="/profile" style={{textDecoration:"none",color:"#000"}}>
-              <ListItemButton component="a" href="#simple-list">
+             <ListItem disablePadding className={icon==="profile" ? "icon" : ""} >
+             <Link to="/profile" style={{textDecoration:"none",color:"#fff"}} onClick={()=>setIcon("profile")}>
+              <ListItemButton component="a" href="#simple-list" >
                 <ListItemIcon>
-                <AccountBox />
+                <AccountBox sx={{ color:"white"}}/>
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
               </ListItemButton>

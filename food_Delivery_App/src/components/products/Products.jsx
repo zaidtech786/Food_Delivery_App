@@ -61,7 +61,7 @@ const Products = () => {
                     component="img"
                     width="100%"
                     height={210}
-                    image={data.photos[2]}
+                    image={data.photos[0]}
                     alt="card Image"
                     sx={{
                       borderRadius: '10px'
@@ -69,26 +69,18 @@ const Products = () => {
                     onClick={()=>navigate(`/single/${data._id}`)}
                   />
                   <CardContent sx={{
-                    display: 'flex',flexDirection: 'row', justifyContent: 'space-between', gap: '10px', paddingX: '5px'
+                    display: 'flex',flexDirection: 'column', justifyContent: 'space-between', gap: '10px', paddingX: '5px'
                   }}>
-                    <Stack direction="column" gap={1} sx={{
-              
-                    }}>
-                      <Typography fontSize={16} fontWeight={500} 
-                      color="#11142d">{data.name}</Typography>
-                    <Box px={1.5} py={0.5} borderRadius={1} bgcolor="#e5f7ee" height="fit-content" width="fit-content">
-                      <Typography fontSize={12} fontWeight={600}
-                      color="#03753c">
-                      {data.discount}
-                      </Typography>
-                    </Box>
-                    </Stack>
-                    <Box px={1.5} py={0.5} borderRadius={1} bgcolor="#dadefa" height="fit-content">
-                      <Typography fontSize={12} fontWeight={600}
-                      color="#475be8">
-                        ${data.price}
-                      </Typography>
-                    </Box>
+                   <Typography fontSize={16} fontWeight={600} color="#475be8">
+                  {data.desc}
+                </Typography>
+                <div className="card-Content">
+                  <h2>₹{data.price}.00</h2>
+                  <div style={{display:"flex",flexDirection:"row"}}>
+                  <h3 style={{textDecoration:"line-through",marginRight:"20px"}}>₹{data.price + 500}</h3>
+                  <h4 style={{color:"green"}}>{data.discount}%OFF</h4>
+                  </div>
+                </div>
                   </CardContent>
                   </Card>
               

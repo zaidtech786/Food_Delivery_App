@@ -73,13 +73,23 @@ const RamadanCard = () => {
             <CardContent
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 justifyContent: "space-between",
                 gap: "10px",
                 paddingX: "5px",
               }}
             >
-              <Stack direction="column" gap={1} sx={{}}>
+               <Typography fontSize={16} fontWeight={600} color="#475be8">
+                  {item.desc}
+                </Typography>
+                <div className="card-Content">
+                  <h2>₹{item.price}.00</h2>
+                  <div style={{display:"flex",flexDirection:"row"}}>
+                  <h3 style={{textDecoration:"line-through",marginRight:"20px"}}>₹{item.price + 500}</h3>
+                  <h4 style={{color:"green"}}>{item.discount}%OFF</h4>
+                  </div>
+                </div>
+              {/* <Stack direction="column" gap={1} sx={{}}>
                 <Typography fontSize={16} fontWeight={500} color="#11142d">
                 {item.name}
                 </Typography>
@@ -95,8 +105,8 @@ const RamadanCard = () => {
                     {item.discount}%
                   </Typography>
                 </Box>
-              </Stack>
-              <Box
+              </Stack> */}
+              {/* <Box
                 px={1.5}
                 py={0.5}
                 borderRadius={1}
@@ -106,7 +116,7 @@ const RamadanCard = () => {
                 <Typography fontSize={12} fontWeight={600} color="#475be8">
                   ${item.price}
                 </Typography>
-              </Box>
+              </Box> */}
             </CardContent>
           </Card>
           )
