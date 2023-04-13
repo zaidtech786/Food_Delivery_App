@@ -21,7 +21,7 @@ const SingleProduct = () => {
         axios.get(`http://localhost:4000/api/food/getfood/${id}`)
         .then(res => {
             console.log("SingleProduct : ",res.data.food)
-            // setImg(res.data.food.photos[0])
+            setImg(res.data.food.photos[0])
             setData(res.data.food)
         }).catch(err => {
             console.log(err)
@@ -106,8 +106,12 @@ const SingleProduct = () => {
     </div>
 
     <div className='rightImg'>
-     <img src={img}/>
-    </div>
+  {
+    data?.photos?.length > 0 && (
+      <img src={img} />
+    )
+  }
+</div>
  
     </div>
     
