@@ -1,14 +1,12 @@
 .secContainer{
-    width: 90%;
     overflow: hidden;
     transition: all .3s;
-    margin-left: 200px;
-    margin-top: 10px;
-  
+    margin-top: 10px;    
+    width: 100%;
 }
 .slider2{
+    border-radius: 15px;
     object-fit: contain;
-    /* height: 200px; */
     width: 100%;
     transition: all .3s;
 }

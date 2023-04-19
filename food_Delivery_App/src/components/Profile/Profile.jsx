@@ -7,6 +7,7 @@ import Header from './../Header/Header';
 import Sidebar from './../Sidebar/Sidebar';
 import { AppContext } from '../../Context/AppContext';
 import axios from 'axios';
+import Grid from "@mui/material/Grid";
 
 const Profile = () => {
   const {user} = useContext(AppContext)
@@ -25,17 +26,21 @@ const Profile = () => {
   },[])
   return (
     <>
+    <Box bgcolor="#e0e0e0" color="text.primary" style={{ minHeight: '100vh'}}>
         <Header />
-          <Sidebar />
-      <Box
+        <Grid container spacing={0}>
+          <Grid item xs={12} sm={3} md={2}>
+            <Sidebar />
+          </Grid>
+          <Grid item xs={10.5} sm={9} lg={9.5}>
+          <Box
         display="flex"
         sx={{
           flexDirection: "column",
-          marginLeft:"300px"
         }}
-      >
+        alignItems='center'      >
         <Stack>
-          <Typography fontSize="28px" fontWeight={600} color="#11142d">
+          <Typography fontSize="28px" fontWeight={600} color="#11142d" marginTop={2}>
             My Profile
           </Typography>
         </Stack>
@@ -87,14 +92,15 @@ const Profile = () => {
               sx={{
                 width: "20rem",
                 height: "3rem",
-                color: "#A555EC",
-                borderColor: "#a555ec",
+                color: "#B53471",
+                borderColor: "#B53471",
                 "&:hover": {
-                  borderColor: "#a555ec",
+                  borderColor: "#B53471",
                 },
               }}
+              
             //   onClick={() => showEditDrawer()}
-            />
+            >Edit</Button>
           </Box>
 
           <Box
@@ -206,6 +212,11 @@ const Profile = () => {
           </Box>
         </Box>
       </Box>
+          </Grid>
+        </Grid>
+      </Box>
+       
+     
     </>
   )
 }

@@ -31,10 +31,21 @@ const RamadanCard = () => {
   }, []);
   return (
     <>
-      <h1 style={{ textAlign: "center", marginTop: "1rem" }}>
+    <Box
+    
+    flex={1}
+   borderRadius="15px"
+   padding="20px"
+   bgcolor="#fcfcfc"
+   minWidth="100%"
+   mt="25px"
+    >
+
+    
+      <Typography style={{ textAlign: "center", marginTop: "1rem" }} fontSize={40} fontWeight={700}>
         Ramadan Special
-      </h1>
-      <div
+      </Typography>
+      <Box
         style={{
           display: "flex",
           justifyContent: "center",
@@ -42,6 +53,7 @@ const RamadanCard = () => {
           flexDirection: "row",
           gap: "30px",
         }}
+        flexWrap='wrap'
       >
         {data?.map((item) => {
           return (
@@ -123,7 +135,8 @@ const RamadanCard = () => {
         })}
 
       
-      </div>
+      </Box>
+      </Box>
     </>
   );
 };

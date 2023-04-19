@@ -1,12 +1,16 @@
-.sliderContainer{
-    width: 90%;
-    overflow: hidden;
+.sliderContainer {
     transition: all .3s;
     display: flex;
     flex-direction: column;
-}
-.sliderContainer img{
-    object-fit: contain;
-    width: 100%;
+    min-width: 100%;
+    height:auto;
+    margin-top: 1rem;
+  }
+  
+  .sliderContainer img {
+    object-fit: contain; 
+    height: 100%; 
     transition: all .3s;
-}
+    border-radius: 15px;
+    min-width: 100%;
+  }

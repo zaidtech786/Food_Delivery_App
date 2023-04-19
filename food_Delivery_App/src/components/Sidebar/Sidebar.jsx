@@ -29,7 +29,7 @@ import { AppContext } from "../../Context/AppContext";
     return (
       <Box flex={1}  sx={{ display: { xs: "none", sm: "block"}, }}>
         {/* sx={{backgroundColor:"red"}} */}
-        <Box position="fixed" sx={{backgroundColor:"#B53471",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",marginTop:"0px",height:"100%",lineHeight:"80px",width:"12%"}}  >
+        <Box position="fixed" sx={{backgroundColor:"#B53471",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",marginTop:"0px",height:"100%",lineHeight:"80px",width:"14%", overflow:'hidden'}}  >
           <List >
            
             <ListItem disablePadding className={icon==="home" ? "icon" : ""}>
