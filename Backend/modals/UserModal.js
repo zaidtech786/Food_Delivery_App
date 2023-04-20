@@ -23,12 +23,6 @@ const userSchema = new mongoose.Schema({
     address:{
         type:String,
     },
-    cart:[
-        {
-            type:mongoose.Types.ObjectId,
-            ref:"Food"
-        }
-    ],
     isAdmin : {
         type:Boolean,
         default:false

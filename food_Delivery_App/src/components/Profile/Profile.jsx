@@ -7,10 +7,12 @@ import Header from './../Header/Header';
 import Sidebar from './../Sidebar/Sidebar';
 import { AppContext } from '../../Context/AppContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const {user} = useContext(AppContext)
-  const [userData,setUserData] = useState()
+  const [userData,setUserData] = useState();
+  const navigate = useNavigate()
   const getUserData = () => {
     axios.get(`http://localhost:4000/api/getuser/${user._id}`)
     .then(res => {
@@ -92,9 +94,10 @@ const Profile = () => {
                 "&:hover": {
                   borderColor: "#a555ec",
                 },
+                
               }}
-            //   onClick={() => showEditDrawer()}
-            />
+              onClick={() => showEditDrawer()}
+            >Edit Profile</Button>
           </Box>
 
           <Box
@@ -154,7 +157,7 @@ const Profile = () => {
                   fontWeight={500}
                   color="rgb(128, 129, 145)"
                 >
-                  {userData?.address}
+                  {user.address}
                 </Typography>
               </Box>
               <Box mt={2}>
@@ -183,7 +186,7 @@ const Profile = () => {
                 </Typography>
                 <Box mt={2} display="flex" flexDirection="row" gap={2}>
                   <PhoneIcon />
-                  <Typography>{userData?.phone}</Typography>
+                  <Typography>{user.phone}</Typography>
                 </Box>
               </Box>
               <Box display="flex" flexDirection="column" mt={6}>
@@ -196,7 +199,7 @@ const Profile = () => {
                 </Typography>
                 <Box mt={2} display="flex" flexDirection="row" gap={2}>
                   <MailIcon />
-                  {userData?.email}
+                  {user?.email}
 
                   {/* <Typography>{userData?.email}</Typography> */}
                   

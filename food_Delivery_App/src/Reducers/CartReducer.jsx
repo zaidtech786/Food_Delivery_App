@@ -13,7 +13,6 @@ const CartReducer = (state,action) => {
           cart:[...state.cart,action.payload],
         };
     case "SET_DATA":
-      console.log(action.payload)
       return {
         ...state,
         cart:action.payload

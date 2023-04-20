@@ -4,7 +4,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Feed from './components/Home/Home'
-import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
+import { Box, createTheme, Modal, Stack, ThemeProvider } from "@mui/material";
 import Home from "./components/Home/Home"
 import Carousel from './components/Carousel/Carousel';
 import Cards from "./components/Cards/Cards"
@@ -26,17 +26,13 @@ import axios from 'axios';
 import { CartContext } from './Context/CartContext';
 import CartItems from './components/CartItems/CartItems';
 import OrderList from './components/Orders/OrderList';
+import OrderInfo from './components/OrderForm/OrderInfo';
+import Modals from "./components/Modal/Modal"
 
 function App() {
   const [mode, setMode] = useState("light");
   const {user} = useContext(AppContext)
-  const {cartDispatch} = useContext(CartContext)
 
-  const darkTheme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
 
 //   const getCarts = () => {
 //     axios.get(`http://localhost:4000/api/cart/getusercart/${user._id}`)
@@ -66,6 +62,8 @@ function App() {
             <Route path='/navbar' element={<Navbar/>} />
             <Route path='/orders' element={<OrderList/>} />
             <Route path='/cartitems' element={<CartItems/>} />
+            <Route path='/modal' element={<Modals/>} />
+            <Route path='/orderinfo/:price' element={<OrderInfo/>} />
             <Route path='/single/:id' element={<SingleProduct/>} />
             <Route path='/categorydata/:cat' element={<ListCategory/>} />
           </Routes>

@@ -37,6 +37,7 @@ export default function Login() {
   const [emailInput, setEmailInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
   const [rememberMe, setRememberMe] = useState();
+  const [error, setError] = useState("");
 
   // Inputs Errors
   const [emailError, setEmailError] = useState(false);
@@ -95,20 +96,22 @@ export default function Login() {
       return;
     }
     setFormValid(null);
-    setSuccess("Form Submitted Successfully");
+   
 
     axios.post("http://localhost:4000/api/userlogin",{
       email:emailInput,
       password:passwordInput
     })
     .then(res => {
-      if(res.data.message==="Login Successfully"){
+      console.log(res.data);
+      if(res.data.user){
         dispatch({type:"LOGIN",payload:res.data.user})
-        // navigate("/home")
+        setSuccess("Login SuccessFully");
+        navigate("/")
         return
       }
       else{
-        alert("Something Went Wrong,Please try again")
+        setError(res.data.error)
         // navigate("/login")
       }
     })
@@ -124,7 +127,7 @@ export default function Login() {
         <div style={{width:"500px",height:"400px",boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",borderRadius:"7px"}} >
       <div style={{marginTop:"1rem",padding:"0.5rem" }}>
         <TextField
-          label="Email Address"
+          label="Email"
           fullWidth
           error={emailError}
           id="standard-basic"
@@ -204,6 +207,14 @@ export default function Login() {
         <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
           <Alert severity="success" size="small">
             {success}
+          </Alert>
+        </Stack>
+      )}
+
+      {error && (
+        <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
+          <Alert severity="error" size="small">
+            {error}
           </Alert>
         </Stack>
       )}

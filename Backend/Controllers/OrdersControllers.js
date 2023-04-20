@@ -26,7 +26,7 @@ const orderItems = async(req,res) => {
 const getUserOrder = async(req,res) => {
     let userOrder
     try {
-        userOrder = await Orders.find({user:req.params.id})
+        userOrder = await Orders.find({user:req.params.id}).populate("product")
     } catch (error) {
         console.log(error)
     }
@@ -36,9 +36,25 @@ const getUserOrder = async(req,res) => {
     return res.send({msg:"Not orders yet!!"})
 }
 
+// delete Order
+const deleteOrder = async(req,res) => {
+    let order;
+    try {
+        order = await Orders.findByIdAndDelete(req.params.id)
+    } catch (error) {
+        console.log(error);
+    }
+    if(order){
+       return res.send({order})
+    }
+    return res.send({error:"Unable to delete the order"})
+
+}
+
 
 
 
 exports.orderItems = orderItems;
 exports.getOrders = getOrders;
 exports.getUserOrder = getUserOrder;
+exports.deleteOrder = deleteOrder;

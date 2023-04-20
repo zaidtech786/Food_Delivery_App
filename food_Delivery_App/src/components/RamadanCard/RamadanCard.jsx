@@ -31,14 +31,15 @@ const RamadanCard = () => {
   }, []);
   return (
     <>
-      <h1 style={{ textAlign: "center", marginTop: "1rem" }}>
+      <Typography style={{textAlign:"center",marginTop:"1rem"}} fontSize={40} fontWeight={700}>
         Ramadan Special
-      </h1>
+      </Typography>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems:"center",
+          marginLeft:"12rem",
           flexDirection: "row",
           gap: "30px",
         }}

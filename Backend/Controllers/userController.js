@@ -39,7 +39,7 @@ const userLogin = async (req, res) => {
   }
   if (user) {
     if (bcrypt.compareSync(password, user.password)) {
-      res.send({ message: "Login Successfully", user });
+      res.send({ msg: "Login Successfully", user });
     } else {
       res.send({ error: "Password is not correct" });
     }

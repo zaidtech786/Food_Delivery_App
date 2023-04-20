@@ -5,20 +5,17 @@ const OrderSchema = new mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:"user"
     },
-    product:{
+    product:[{
         type:mongoose.Types.ObjectId,
         ref:"Food"
-    },
+    }],
     quantity:{
         type:Number,
-        required:true
+        // required:true
     },
-    isPaid: {type: Boolean, default: false},
-    paidAt: {type:Date},
     isDelivered: {type: Boolean, default:false},
     deliveredAt: {type: Date},
     itemsPrice: {type: Number, required: true},
-    shippingPrice: {type: Number, required: true},
 },
 {
     timestamps:true

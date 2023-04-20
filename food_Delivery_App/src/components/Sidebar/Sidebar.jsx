@@ -23,9 +23,11 @@ import {
   import {Link} from "react-router-dom"
   import "./Sidebar.css"
 import { AppContext } from "../../Context/AppContext";
+import { CartContext } from "../../Context/CartContext";
   
-  const Sidebar = ({mode,setMode}) => {
+  const Sidebar = () => {
     const {setIcon,icon} = useContext(AppContext)
+    const {cartDispatch} = useContext(CartContext)
     return (
       <Box flex={1}  sx={{ display: { xs: "none", sm: "block"}, }}>
         {/* sx={{backgroundColor:"red"}} */}
@@ -104,7 +106,7 @@ import { AppContext } from "../../Context/AppContext";
                 <ListItemIcon>
                   <ModeNight />
                 </ListItemIcon>
-                <Switch onChange={e=>setMode(mode === "light" ? "dark" : "light")}/>
+                <Switch onClick={()=>cartDispatch({type:"DARK_MODE_ON",payload:true})}/>
               </ListItemButton>
             </ListItem>
           </List>

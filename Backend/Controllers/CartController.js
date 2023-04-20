@@ -38,6 +38,18 @@ const getUserCart = async(req,res) => {
 
 }
 
+// Get Cart by id
+const getCartById = async(req,res) => {
+    let cart;
+    try {
+        cart = await cartModel.findById(req.params.id).populate("user product")
+    } catch (error) {
+        console.log(error)
+    }
+    res.send({cart})
+
+}
+
 const removeCartItem = async(req,res) => {
     const {id} = req.params
     let cart;
@@ -57,3 +69,4 @@ exports.AddToCart = AddToCart
 exports.getAllCartItem = getAllCartItem
 exports.getUserCart = getUserCart
 exports.removeCartItem = removeCartItem
+exports.getCartById = getCartById

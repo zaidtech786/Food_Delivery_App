@@ -75,7 +75,7 @@ const CategoryCards = () => {
   const navigate = useNavigate()
   return (
     <>
-  <h1 style={{textAlign:"center",marginTop:"1rem"}}>Shop From Category</h1>
+  <Typography style={{textAlign:"center",marginTop:"1rem"}} fontSize={40} fontWeight={700}>Shop From Category</Typography>
   <div style={{marginLeft:"150px",display: "flex", flexWrap: "wrap",justifyContent:"center",gap:"20px",marginTop:"1rem"}}>
     <Box
     sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "35%" }}
@@ -176,6 +176,78 @@ const CategoryCards = () => {
           }}
         >
           ColdDinks
+          <ImageMarked className="MuiImageMarked-root" />
+        </Typography>
+      </Image>
+    </ImageButton>
+  </Box>
+
+    <Box
+    sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "35%" }}
+    onClick={()=>navigate(`/categorydata/${"Breakfast"}`)}
+    
+  >
+    <ImageButton
+      focusRipple
+      key="title"
+      style={{
+        width: "100%",
+        borderRadius: "15px",
+      }}
+    >
+      <ImageSrc
+        style={{ backgroundImage:"url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1679480481_Breakfast_Mela_Desktop.jpg)", borderRadius: "15px" }}
+      />
+      <ImageBackdrop className="MuiImageBackdrop-root" />
+      <Image>
+        <Typography
+          component="span"
+          variant="subtitle1"
+          color="inherit"
+          sx={{
+            position: "relative",
+            p: 4,
+            pt: 2,
+            pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+          }}
+        >
+          Breakfast
+          <ImageMarked className="MuiImageMarked-root" />
+        </Typography>
+      </Image>
+    </ImageButton>
+  </Box>
+
+    <Box
+    sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "35%" }}
+    onClick={()=>navigate(`/categorydata/${"Breakfast"}`)}
+    
+  >
+    <ImageButton
+      focusRipple
+      key="title"
+      style={{
+        width: "100%",
+        borderRadius: "15px",
+      }}
+    >
+      <ImageSrc
+        style={{ backgroundImage:"url(https://www.jiomart.com/images/cms/aw_rbslider/slides/1679480481_Breakfast_Mela_Desktop.jpg)", borderRadius: "15px" }}
+      />
+      <ImageBackdrop className="MuiImageBackdrop-root" />
+      <Image>
+        <Typography
+          component="span"
+          variant="subtitle1"
+          color="inherit"
+          sx={{
+            position: "relative",
+            p: 4,
+            pt: 2,
+            pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+          }}
+        >
+          Breakfast
           <ImageMarked className="MuiImageMarked-root" />
         </Typography>
       </Image>

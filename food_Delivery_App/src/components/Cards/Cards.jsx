@@ -100,9 +100,18 @@ elevation={0}
   </Box>
 </CardContent>
 </Card> */}
+<Box
+   flex={1}
+   borderRadius="15px"
+   padding="20px"
+   bgcolor="#fcfcfc"
+   minWidth="100%"
+   mt="25px"
 
-    <h1 style={{textAlign:"center",marginTop:"1rem"}}>Our Trending Products</h1>
-    <div style={{display:"flex",justifyContent:"center",flexDirection:"row",gap:"30px",marginTop:"1rem",marginLeft:"120px"}}>
+>
+
+    <Typography style={{textAlign:"center",marginTop:"1rem"}} fontSize={40} fontWeight={700}>Our Trending Products</Typography>
+    <Box style={{display:"flex",justifyContent:"center",flexDirection:"row",gap:"30px",marginTop:"1rem",marginLeft:"7rem"}} flexWrap='wrap' >
     {data?.map((item) => {
           return (
           <Card
@@ -170,11 +179,10 @@ elevation={0}
 
 
 
-    </div>
+    </Box>
+    </Box>
     </>
   )
 }
 
 export default Cards
-
-
