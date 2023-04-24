@@ -50,25 +50,7 @@ const CartItems = () => {
     cartDispatch({ type: "SET_DATA", payload: filterData });
   };
 
-  // const Increment = (id) => {
-  //     console.log(id)
-  //     let findItem = cart.find(item => {
-  //         if(item._id === id){
-  //             return {...item,quantity : item.quantity + 1}
-  //         }
-  //         else{
-  //             return item
-  //         }
-  //     })
-  //     console.log(findItem)
-  //    cartDispatch({type:"INCREMENT",payload:findItem})
 
-  // }
-
-  // const Decrement = () => {
-  //    cartDispatch({type:"DECREMENT",payload:id})
-  // //
-  // }
 
   const findTotalCart = () => {
     let total_price = data.reduce((initialVal, curElem) => {

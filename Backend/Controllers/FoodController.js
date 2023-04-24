@@ -1,14 +1,14 @@
 const Food = require("../modals/FoodModel")
 
 const addFoods = async(req,res) => {
-    const {name,desc,price,photos,varieties,category} = req.body;
+    const {name,desc,price,photos,stock,category} = req.body;
 let foods; 
 foods = new Food({
     name,
     desc,
     price,
     photos,
-    varieties,
+    stock,
     category
 });
 

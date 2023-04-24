@@ -51,6 +51,21 @@ const deleteOrder = async(req,res) => {
 
 }
 
+// getAdminStatus Orders
+const getAdminStatus = async(req,res) => {
+    let userStatus;
+    try{
+        userStatus = await Orders.findByIdAndUpdate(req.params.id,{
+            isDelivered:req.body.status
+        },{
+            new:true
+        })
+    }catch(err){
+        console.log(err);
+    }
+    res.send({userStatus})
+}
+
 
 
 
@@ -58,3 +73,4 @@ exports.orderItems = orderItems;
 exports.getOrders = getOrders;
 exports.getUserOrder = getUserOrder;
 exports.deleteOrder = deleteOrder;
+exports.getAdminStatus = getAdminStatus;

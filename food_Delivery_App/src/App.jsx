@@ -30,31 +30,14 @@ import OrderInfo from './components/OrderForm/OrderInfo';
 import Modals from "./components/Modal/Modal"
 
 function App() {
-  const [mode, setMode] = useState("light");
   const {user} = useContext(AppContext)
-
-
-//   const getCarts = () => {
-//     axios.get(`http://localhost:4000/api/cart/getusercart/${user._id}`)
-//     .then(res => {
-//         console.log("Carts : ",res.data)
-//         cartDispatch({type:"CART_DATA",payload:res.data.cart})
-//     }).catch(err => {
-//         console.log(err)
-//     })
-// }
-// useEffect( () => {
-//     getCarts()
-// },[])
-
 
   return (
     <>
-      {/* <ThemeProvider theme={darkTheme}> */}
-         {/* {user._id ? <Home/> : <Login/>} */}
+      
           <Routes>
             <Route path='/' element={user._id ? <Home/> : <Login/>} />
-            <Route path='/sidebar'  element={<Sidebar mode={mode} setMode={setMode}/>} />
+            <Route path='/sidebar'  element={<Sidebar/>} />
             <Route path='/products' element={<Products/>} />
             <Route path='/profile' element={<Profile/>} />
             <Route path='/login' element={<Login/>} />
@@ -67,7 +50,6 @@ function App() {
             <Route path='/single/:id' element={<SingleProduct/>} />
             <Route path='/categorydata/:cat' element={<ListCategory/>} />
           </Routes>
-    {/* </ThemeProvider> */}
     </>
   )
 }

@@ -13,7 +13,7 @@ const OrderSchema = new mongoose.Schema({
         type:Number,
         // required:true
     },
-    isDelivered: {type: Boolean, default:false},
+    isDelivered: {type: String, default:"pending"},
     deliveredAt: {type: Date},
     itemsPrice: {type: Number, required: true},
 },

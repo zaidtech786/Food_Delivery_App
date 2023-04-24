@@ -41,6 +41,7 @@ const OrderList = () => {
     // cartDispatch({ type: "SET_DATA", payload: filterData });
   }
 
+  
   return (
     <>
       <Header />
@@ -76,9 +77,13 @@ const OrderList = () => {
                     <span>Delivered to:</span>
                     <h3>{user.address}</h3>
                   </div>
+                  <div className="address" style={{display:"flex"}}>
+                    <span>Price:</span>
+                    <h3>Rs.{order.itemsPrice}</h3>
+                  </div>
                   <div className="status">
                     <span>Delivery Status</span>
-                    <h3 style={{ color: "red" }}>Pending</h3>
+                    <h3 style={{ color: "red" }}>{order.isDelivered}</h3>
                   </div>
                   <div className="cancelBtn">
                     <button onClick={() => CancelOrder(order._id)}> Cancel Order</button>
